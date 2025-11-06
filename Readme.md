@@ -100,3 +100,17 @@ The architecture enforces:
 - **Auditable actions** in `audit_logs`
 - **Frontend-backend communication** protected by JWT
 - **Scalable and maintainable database schema**
+
+
+
+## Performance Optimization
+A database index was added on the email column of the users table to optimize search and login queries.
+
+Example:
+CREATE UNIQUE INDEX users_email_unique ON users(email);
+
+This improves performance for queries like:
+SELECT * FROM users WHERE email = ?
+
+By indexing the email column, MySQL can use a B-tree lookup instead of scanning the entire table, resulting in significantly faster query performance — especially as the number of users grows.
+
