@@ -1,10 +1,10 @@
-require('dotenv').config(); // loads .env
+require('dotenv').config();
 
 module.exports = {
   development: {
     client: 'mysql2',
     connection: {
-      host: process.env.DB_HOST || 'db', // 'db' matches your docker-compose service
+      host: process.env.DB_HOST || 'db', 
       user: process.env.DB_USER || 'root',
       password: process.env.DB_PASSWORD || 'root',
       database: process.env.DB_NAME || 'user_profile_db',
